@@ -29,15 +29,22 @@ function onButtonClick(event,items) {
         return;
     }
 
+    // console.log(key);
+    // console.log(value);
+
     displayItems(items.filter((item) => item[key] === value));
 
 }
 
 function setEventListeners(items) {
     const logo = document.querySelector('.logo');
-    const buttons = document.querySelector('.buttons');
+    const buttons = document.querySelectorAll('.buttons2');
     logo.addEventListener('click', () => displayItems(items));
-    buttons.addEventListener('click',event=> onButtonClick(event,items))
+
+    let button;
+    for (button of buttons) {
+        button.addEventListener('click',event=> onButtonClick(event,items))
+    }
 }
 
 
